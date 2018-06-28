@@ -150,10 +150,12 @@ if [ $? == 0 ] ; then
 	#-------------------------------------------------------
 	# Navigateur par défaut Firefox
 	# Proxy, Gestion de l'historique, page de démarrage etc...
-
-	# voir Xavier pour docs
-	xdg-settings set default-web-browser firefox-browser.desktop
-	cp -r $repinstallation/share/firefox/syspref.js /etc/firefox/syspref.js 
+	# https://github.com/mozilla/policy-templates/blob/master/README.md
+	#{
+ 	# 	"policies": {
+    	#	"SanitizeOnShutdown": [true|false]
+  	#	}
+	#}
 	
 	#-------------------------------------------------------
 	#  Configuration fichier sudoers
