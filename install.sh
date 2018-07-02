@@ -14,7 +14,7 @@ repinstallation="/opt/borne"
 
 cd /opt/
 # Check branche dev
-wget https://github.com/ersplus/solibuntu/archive/Dev.zip
+wget https://github.com/ersplus/solibuntu/archive/Dev.zip -O /opt/Dev.zip
 
 #if [ $1 == "iso" ] ; then
 	#useradd -m administrateur
@@ -170,6 +170,11 @@ if [ $? == 0 ] ; then
 		echo "Impossible de modifier le fichier sudoers"
 	fi
 	
+	cp /opt/borne/share/config.tar.gz /home/administrateur/
+	cd /home/administrateur/
+	rm -rf .config
+	tar -xvzf config.tar.gz
+
 	echo "Fin de l'installation"
 fi
 exit 0
