@@ -172,6 +172,20 @@ if [ $? == 0 ] ; then
 		echo "Impossible de modifier le fichier sudoers"
 	fi
 
+	cp /opt/borne/share/config.tar.gz /home/administrateur/
+	cd /home/administrateur/
+	rm -rf .config
+	tar -xvzf config.tar.gz
+	rm config.tar.gz
+
+	cp /opt/borne/share/config.tar.gz /home/gestionnaire/
+	cd /home/gestionnaire/
+	rm -rf .config
+	tar -xvzf config.tar.gz
+	chown -R gestionnaire:gestionnaire .config/
+
+	rm config.tar.gz
+	
 	echo "Fin de l'installation"
 fi
 exit 0
