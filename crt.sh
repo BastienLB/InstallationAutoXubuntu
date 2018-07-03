@@ -1,13 +1,14 @@
 echo " ================================= Après chroot ========================================="
 chroot squashfs
-useradd -m administrateur -s /bin/bash -k
+useradd -m administrateur -s /bin/bashel
 echo -e "AdminSolibuntu\nAdminSolibuntu" | passwd administrateur
 usermod -c "Administrateur Solibuntu" administrateur
 adduser administrateur sudo
 
-useradd -m gestionnaire -s /bin/bash -k
+useradd -m gestionnaire -s /bin/bash
 echo -e "AdminAsso\nAdminAsso" | passwd gestionnaire
 usermod -c "Gestionnaire Solibuntu" gestionnaire
+
 echo " ================================= Avant install ========================================"
 ./Solibuntu/install.sh iso
 echo " ================================= Après install ========================================"

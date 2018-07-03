@@ -67,7 +67,7 @@ if [ $? == 0 ] ; then
 
 	# Liaison vers le profil utilisateur
 	echo "Squelette environnement Invité"
-	ln -s /home/gestionnaire /etc/guest-session/skel
+	#ln -s /home/gestionnaire /etc/guest-session/skel
 
 	# Configuration Autologin et les scripts de lightdm
 	cp -f $repinstallation/scripts/lightdm.conf.d/50-logout-restoreinvite.conf /etc/lightdm/lightdm.conf.d/50-logout-restoreinvite.conf
@@ -185,7 +185,7 @@ if [ $? == 0 ] ; then
 	chown -R gestionnaire:gestionnaire .config/
 
 	rm config.tar.gz
-	
+
 	echo "Fin de l'installation"
 fi
 exit 0
