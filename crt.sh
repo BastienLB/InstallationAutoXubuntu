@@ -1,4 +1,5 @@
 echo " ================================= Après chroot ========================================="
+apt-get install xdg-user-dir
 chroot squashfs
 useradd -m administrateur -s /bin/bash
 echo -e "AdminSolibuntu\nAdminSolibuntu" | passwd administrateur
