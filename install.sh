@@ -184,7 +184,7 @@ if [ $? == 0 ] ; then
 	#tar -xvzf config.tar.gz
 	#chown -R gestionnaire:gestionnaire .config/
 
-	rm config.tar.gz
+	#rm config.tar.gz
 
 	echo "Fin de l'installation"
 fi
