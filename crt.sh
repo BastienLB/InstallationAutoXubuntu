@@ -1,11 +1,11 @@
 echo " ================================= Après chroot ========================================="
 chroot squashfs
-useradd -m administrateur -s /bin/bash -k /etc/skel_admin
+useradd -m administrateur -s /bin/bash
 echo -e "AdminSolibuntu\nAdminSolibuntu" | passwd administrateur
 usermod -c "Administrateur Solibuntu" administrateur
 adduser administrateur sudo
 
-useradd -m gestionnaire -s /bin/bash #-k /etc/skel_gest
+useradd -m gestionnaire -s /bin/bash
 echo -e "AdminAsso\nAdminAsso" | passwd gestionnaire
 usermod -c "Gestionnaire Solibuntu" gestionnaire
 
