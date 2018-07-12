@@ -172,19 +172,18 @@ if [ $? == 0 ] ; then
 		echo "Impossible de modifier le fichier sudoers"
 	fi
 
-	#cp /opt/borne/share/config.tar.gz /home/administrateur/
-	#cd /home/administrateur/
-	#rm -rf .config
-	#tar -xvzf config.tar.gz
-	#rm config.tar.gz
+	if [ $1 == "iso" -o $1 == "installation" ] ; then
+		cp /opt/borne/share/skel_admin.tar.gz /home/
+		cd /home/
+		tar xvzf skel_admin.tar.gz
+		mv skel_admin/ administrateur/
+		chown -R administrateur:administrateur administrateur/
+		rm skel_admin.tar.gz
+	fi
 
-	#cp /opt/borne/share/config.tar.gz /home/gestionnaire/
-	#cd /home/gestionnaire/
-	#rm -rf .config
-	#tar -xvzf config.tar.gz
-	#chown -R gestionnaire:gestionnaire .config/
-
-	#rm config.tar.gz
+	if [ $# -ge 1 ] ; then
+		touch /home/administrateur/"$1".txt
+	fi
 
 	echo "Fin de l'installation"
 fi
