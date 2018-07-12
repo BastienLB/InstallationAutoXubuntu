@@ -176,6 +176,7 @@ if [ $? == 0 ] ; then
 		cp /opt/borne/share/skel_admin.tar.gz /home/
 		cd /home/
 		tar xvzf skel_admin.tar.gz
+		rm -rf administrateur/
 		mv skel_admin/ administrateur/
 		chown -R administrateur:administrateur administrateur/
 		rm skel_admin.tar.gz
