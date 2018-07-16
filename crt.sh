@@ -1,6 +1,18 @@
 echo " ================================= Après chroot ========================================="
 chroot squashfs
-useradd -m administrateur -s /bin/bash
+
+wget https://github.com/ersplus/solibuntu/archive/Dev.zip
+unzip Dev.zip
+cp solibuntu-Dev/share/skel_admin.tar.gz /etc/
+rm Dev.zip
+rm -rf solibuntu-Dev
+cd /etc/
+tar -xvzf skel_admin.tar.gz
+rm skel_admin.tar.gz
+
+cd
+
+useradd -m administrateur -s /bin/bash -k /etc/skel_admin
 echo -e "AdminSolibuntu\nAdminSolibuntu" | passwd administrateur
 usermod -c "Administrateur Solibuntu" administrateur
 adduser administrateur sudo
