@@ -13,16 +13,13 @@ tar -xvzf skel_gest.tar.gz
 rm skel_admin.tar.gz
 rm skel_gest.tar.gz
 cd ../
-
 useradd -m administrateur -s /bin/bash -k /etc/skel_admin
 echo -e "AdminSolibuntu\nAdminSolibuntu" | passwd administrateur
 usermod -c "Administrateur Solibuntu" administrateur
 adduser administrateur sudo
-
 useradd -m gestionnaire -s /bin/bash -k /etc/skel_gest
 echo -e "AdminAsso\nAdminAsso" | passwd gestionnaire
 usermod -c "Gestionnaire Solibuntu" gestionnaire
-
 echo " ================================= Avant install ========================================"
 ./Solibuntu/install.sh iso
 echo " ================================= Après install ========================================"
