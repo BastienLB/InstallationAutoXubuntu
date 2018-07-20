@@ -127,11 +127,22 @@ sudo bash -c "find . -path ./isolinux -prune -o -type f -not -name md5sum.txt -p
 
 # Crée une image nommée "preseed_test.iso" à partir du dossier "FichierIso"
 cd $local/FichierIso
-genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o preseed_test.iso .
+case ${choix} in
+	"Master")
+		genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o solibuntu_master.iso .
+		# Déplace le fichier iso dans le dossier local
+		mv solibuntu_master.iso $local
+	;;
+	"Dev")
+		genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o solibuntu_dev.iso .
+		# Déplace le fichier iso dans le dossier local
+		mv solibuntu_dev.iso $local
+	;;
+esac
+#genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o preseed_test.iso .
 #mkisofs -J -r -v -o $local/preseed_test.iso -V Solibuntu -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table $local/FichierIso
 
-# Déplace le fichier iso dans le dossier local
-mv preseed_test.iso $local
+
 
 # Supprime le dossier "FichierIso devenu inutile"
 cd $local/
