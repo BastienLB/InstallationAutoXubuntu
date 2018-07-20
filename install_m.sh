@@ -14,21 +14,14 @@ repinstallation="/opt/borne"
 
 cd /opt/
 # Check branche dev
-wget https://github.com/ersplus/solibuntu/archive/Dev.zip -O /opt/Dev.zip
+wget https://github.com/ersplus/solibuntu/archive/master.zip -O /opt/master.zip
 
-#if [ $1 == "iso" ] ; then
-	#useradd -m administrateur
-	#echo -e "AdminSolibuntu\nAdminSolibuntu" | passwd administrateur
-	#usermod -c "Administrateur Solibuntu" administrateur
-#fi
 if [ $? == 0 ] ; then
-	#check branche master 
-	# wget https://github.com/ersplus/solibuntu/archive/master.zip
 	rm -rf /opt/borne
-	unzip Dev.zip
-	mv /opt/solibuntu-Dev $repinstallation
+	unzip master.zip
+	mv /opt/solibuntu-master $repinstallation
 	chmod +x $repinstallation/scripts/*.sh
-	rm Dev.zip
+	rm master.zip
 
 	cd /opt/borne/scripts
 	./install.sh $1

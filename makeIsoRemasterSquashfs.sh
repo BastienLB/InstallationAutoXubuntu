@@ -1,5 +1,7 @@
 #!/bin/bash
 
+choix=`zenity --list --radiolist --column "Choix" --column "Version" FALSE "Master" FALSE "Dev"`
+
 # Définit dans quel dossier est exécuté le script
 local=`pwd`
 
@@ -7,7 +9,14 @@ local=`pwd`
 iso="$local/xubuntu-18.04-desktop-amd64.iso"
 preseed="$local/preseed.cfg"
 txt="$local/text.cfg"
-postInstall="$local/install.sh"
+case ${choix} in
+	"Master")
+		postInstall="$local/install_m.sh"
+	;;
+	"Dev")
+		postInstall="$local/install_d.sh"
+	;;
+esac
 preInstall="$local/preInstall.sh"
 
 echo "Les paquets suivants doivent être installés : \n"
