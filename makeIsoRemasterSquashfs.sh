@@ -89,8 +89,6 @@ chmod a+w $local/FichierIso/casper/filesystem.manifest
 chroot squashfs dpkg-query -W --showformat='${Package} ${Version}\n' > $local/FichierIso/casper/filesystem.manifest
 chmod go-w $local/FichierIso/casper/filesystem.manifest
 
-echo "Exit temporaire nuhumber one"
-
 #exit
 #return 0
 #-----------------------------------------------------------
@@ -100,7 +98,6 @@ echo "Exit temporaire nuhumber one"
 # Efface l'ancien filesystem
 rm $local/FichierIso/casper/filesystem.squashfs
 
-echo "Exit nuhumber one bis"
 #exit
 #return 0
 
@@ -109,7 +106,6 @@ cd $local/squashfs
 mksquashfs . ../FichierIso/casper/filesystem.squashfs -info
 cd $local
 
-echo "Exit nuhumber two"
 
 # Remplace le fichier "xubuntu.seed" par notre fichier de preseed
 cp $preseed $local/FichierIso/preseed/xubuntu.seed
