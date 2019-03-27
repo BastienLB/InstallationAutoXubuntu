@@ -15,7 +15,7 @@ wget http://ftp.free.fr/mirrors/ftp.xubuntu.com/releases/18.04/release/xubuntu-1
 
 3/ Installez les programmes suivants :
 
-sudo apt-get update && sudo apt-get install squashfs-tools schroot genisoimage
+sudo apt-get update && sudo apt-get install squashfs-tools schroot genisoimage syslinux-utils zenity
 
 4/ Exécutez le script makeIsoRemasterSquashfs
 
