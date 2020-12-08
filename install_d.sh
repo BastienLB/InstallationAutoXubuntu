@@ -15,8 +15,8 @@ repinstallation="/opt/borne"
 cd /opt/
 # Check branche dev
 wget https://github.com/ersplus/solibuntu/archive/Dev.zip -O /opt/Dev.zip
-
-if [ $? == 0 ] ; then
+result=$?
+if [ $result == 0 ] ; then
 	rm -rf /opt/borne
 	unzip Dev.zip
 	mv /opt/solibuntu-Dev $repinstallation

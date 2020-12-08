@@ -6,13 +6,13 @@ choix=`zenity --list --radiolist --column "Choix" --column "Version" FALSE "Mast
 local=`pwd`
 
 # Récupère l'iso, le fichier de preseed et le isolinux.cfg modifié
-iso="$local/xubuntu-18.04-desktop-amd64.iso"
+iso="$local/xubuntu.iso"
 preseed="$local/preseed.cfg"
 txt="$local/text.cfg"
 case ${choix} in
 	"Master")
 		postInstall="$local/install_m.sh"
-	;;
+;;
 	"Dev")
 		postInstall="$local/install_d.sh"
 	;;
@@ -65,17 +65,17 @@ cd $local
 
 echo "Préparation du chroot"
 
-echo "Mount"
-mount --bind /proc squashfs/proc 
-mount --bind /sys squashfs/sys
-mount -t devpts none squashfs/dev/pts
-mount --bind /dev squashfs/dev
-mount --bind /dev/pts squashfs/dev/pts
+#echo "Mount"
+#mount --bind /proc squashfs/proc 
+#mount --bind /sys squashfs/sys
+#mount -t devpts none squashfs/dev/pts
+#mount --bind /dev squashfs/dev
+#mount --bind /dev/pts squashfs/dev/pts
 
-echo "Copie des fichiers de conf"
-cp /etc/resolv.conf squashfs/etc/resolv.conf
-cp /etc/hosts squashfs/etc/hosts
-cp /etc/apt/sources.list squashfs/etc/apt/sources.list
+#echo "Copie des fichiers de conf"
+#cp /etc/resolv.conf squashfs/etc/resolv.conf
+#cp /etc/hosts squashfs/etc/hosts
+#cp /etc/apt/sources.list squashfs/etc/apt/sources.list
 
 echo "Lancement bash"
 cd $local
@@ -135,9 +135,6 @@ case ${choix} in
 		mv solibuntu_dev.iso $local
 	;;
 esac
-#genisoimage -r -J -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table -o preseed_test.iso .
-#mkisofs -J -r -v -o $local/preseed_test.iso -V Solibuntu -b isolinux/isolinux.bin -c isolinux/boot.cat -no-emul-boot -boot-load-size 4 -boot-info-table $local/FichierIso
-
 
 
 # Supprime le dossier "FichierIso devenu inutile"
