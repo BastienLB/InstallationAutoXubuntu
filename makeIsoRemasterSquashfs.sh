@@ -16,6 +16,9 @@ case ${choix} in
 	"Dev")
 		postInstall="$local/install_d.sh"
 	;;
+	*)
+		exit
+	;;
 esac
 preInstall="$local/preInstall.sh"
 
