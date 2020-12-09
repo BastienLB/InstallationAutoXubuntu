@@ -30,7 +30,7 @@ echo "squashfs-tools schroot genisoimage"
 mkdir $local/FichierIso
 
 # Monte l'iso
-mount -o loop $iso /mnt
+mount -t iso9660 -o loop $iso /mnt
 
 # Copie le contenu
 cp -av /mnt/. $local/FichierIso
