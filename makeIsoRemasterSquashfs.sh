@@ -1,5 +1,9 @@
 #!/bin/bash
-
+if [ $USER != "root" ]
+then
+	echo "Veuillez lancer ce script en tant qu'administrateur"
+	exit
+fi
 choix=`zenity --list --radiolist --column "Choix" --column "Version" FALSE "Master" FALSE "Dev"`
 
 # Définit dans quel dossier est exécuté le script
