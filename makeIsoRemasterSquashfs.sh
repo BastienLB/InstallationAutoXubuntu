@@ -12,7 +12,7 @@ local=`pwd`
 # Récupère l'iso, le fichier de preseed et le isolinux.cfg modifié
 iso="$local/xubuntu.iso"
 preseed="$local/preseed.cfg"
-txt="$local/text.cfg"
+txt="$local/txt.cfg"
 case ${choix} in
 	"Master")
 		postInstall="$local/install_m.sh"
@@ -118,7 +118,7 @@ cd $local
 cp $preseed $local/FichierIso/preseed/xubuntu.seed
 
 # Remplace le fichier isolinux.cfg par notre fichier
-cp $txt $local/FichierIso/isolinux/isolinux.cfg
+cp $txt $local/FichierIso/isolinux/txt.cfg
 
 # Déplace le script de pre install
 cp $preInstall $local/FichierIso/preInstall.sh
